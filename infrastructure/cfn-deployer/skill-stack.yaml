@@ -5,12 +5,20 @@ Description: Alexa Skill "Bons Points" - Lambda + DynamoDB
 Parameters:
   SkillId:
     Type: String
-    Description: Alexa Skill ID (amzn1.ask.skill.xxx)
+  LambdaRuntime:
+    Type: String
+  LambdaHandler:
+    Type: String
+  CodeBucket:
+    Type: String
+  CodeKey:
+    Type: String
+  CodeVersion:
+    Type: String
 
 Globals:
   Function:
     Timeout: 10
-    Runtime: nodejs18.x
 
 Resources:
 
@@ -29,8 +37,12 @@ Resources:
   AlexaSkillFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ../../lambda/
-      Handler: index.handler
+      CodeUri:
+        Bucket: !Ref CodeBucket
+        Key: !Ref CodeKey
+        Version: !Ref CodeVersion
+      Handler: !Ref LambdaHandler
+      Runtime: !Ref LambdaRuntime
       MemorySize: 128
       Environment:
         Variables:
@@ -46,5 +58,5 @@ Resources:
 
 Outputs:
   SkillEndpoint:
-    Description: ARN Lambda à coller dans skill.json (endpoint.uri)
+    Description: ARN Lambda
     Value: !GetAtt AlexaSkillFunction.Arn

@@ -11,9 +11,17 @@
         }
       },
       "skillInfrastructure": {
-        "@ask-cli/cfn-deployer": {
+        "type": "@ask-cli/cfn-deployer",
+        "userConfig": {
           "templatePath": "./infrastructure/cfn-deployer/skill-stack.yaml",
-          "cfnRegion": "eu-west-1"
+          "cfnRegion": "eu-west-1",
+          "runtime": "nodejs18.x",
+          "handler": "index.handler",
+          "cfn": {
+            "capabilities": [
+              "CAPABILITY_AUTO_EXPAND"
+            ]
+          }
         }
       }
     }
