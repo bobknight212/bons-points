@@ -1,0 +1,52 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "fr-FR": {
+          "name": "Bons Points",
+          "summary": "Gérez les bons points de vos proches.",
+          "description": "Créez des comptes et gérez des bons points pour chaque membre de votre famille ou de votre classe. Seul le créateur du compte peut ajouter ou retirer des points.",
+          "examplePhrases": [
+            "Alexa, ouvre bons points",
+            "ajoute cinq bons points à Marie",
+            "combien de bons points a Thomas"
+          ],
+          "keywords": [
+            "points",
+            "récompense",
+            "enfants",
+            "famille",
+            "score"
+          ],
+          "smallIconUri": "",
+          "largeIconUri": ""
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Testez en français.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": [
+        "FR",
+        "BE",
+        "CA"
+      ]
+    },
+    "apis": {
+      "custom": {
+        "interfaces": []
+      }
+    },
+    "permissions": [
+      {
+        "name": "alexa::profile:given_name:read"
+      }
+    ],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": true,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    }
+  }
+}

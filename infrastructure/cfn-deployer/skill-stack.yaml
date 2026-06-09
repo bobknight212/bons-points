@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Alexa Skill "Bons Points" - Lambda + DynamoDB
+
+Parameters:
+  SkillId:
+    Type: String
+    Description: Alexa Skill ID (amzn1.ask.skill.xxx)
+
+Globals:
+  Function:
+    Timeout: 10
+    Runtime: nodejs18.x
+
+Resources:
+
+  BonsPointsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: BonsPoints
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: accountName
+          AttributeType: S
+      KeySchema:
+        - AttributeName: accountName
+          KeyType: HASH
+
+  AlexaSkillFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../../lambda/
+      Handler: index.handler
+      MemorySize: 128
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref BonsPointsTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref BonsPointsTable
+      Events:
+        AlexaSkillEvent:
+          Type: AlexaSkill
+          Properties:
+            SkillId: !Ref SkillId
+
+Outputs:
+  SkillEndpoint:
+    Description: ARN Lambda à coller dans skill.json (endpoint.uri)
+    Value: !GetAtt AlexaSkillFunction.Arn

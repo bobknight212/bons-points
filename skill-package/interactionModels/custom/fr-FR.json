@@ -1,0 +1,109 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "bons points",
+      "intents": [
+        {
+          "name": "CreateAccountIntent",
+          "slots": [
+            {
+              "name": "AccountName",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "samples": [
+            "crée un compte bons points pour {AccountName}",
+            "crée un compte pour {AccountName}",
+            "créer un compte bons points pour {AccountName}",
+            "nouveau compte bons points pour {AccountName}",
+            "ouvrir un compte pour {AccountName}",
+            "ouvre un compte pour {AccountName}"
+          ]
+        },
+        {
+          "name": "AddPointsIntent",
+          "slots": [
+            {
+              "name": "Points",
+              "type": "AMAZON.NUMBER"
+            },
+            {
+              "name": "AccountName",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "samples": [
+            "ajoute {Points} bons points à {AccountName}",
+            "ajoute {Points} bon points à {AccountName}",
+            "ajouter {Points} bons points à {AccountName}",
+            "donne {Points} bons points à {AccountName}",
+            "donne {Points} points à {AccountName}",
+            "ajoute {Points} points à {AccountName}"
+          ]
+        },
+        {
+          "name": "RemovePointsIntent",
+          "slots": [
+            {
+              "name": "Points",
+              "type": "AMAZON.NUMBER"
+            },
+            {
+              "name": "AccountName",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "samples": [
+            "retire {Points} bons points à {AccountName}",
+            "retire {Points} bon points à {AccountName}",
+            "retirer {Points} bons points à {AccountName}",
+            "enlève {Points} bons points à {AccountName}",
+            "enlève {Points} bon points à {AccountName}",
+            "enlever {Points} bons points à {AccountName}",
+            "supprime {Points} bons points à {AccountName}",
+            "ôte {Points} bons points à {AccountName}",
+            "retire {Points} points à {AccountName}",
+            "enlève {Points} points à {AccountName}"
+          ]
+        },
+        {
+          "name": "CheckPointsIntent",
+          "slots": [
+            {
+              "name": "AccountName",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "samples": [
+            "combien de bons points a {AccountName}",
+            "combien de bons points pour {AccountName}",
+            "combien de bon points a {AccountName}",
+            "combien de points a {AccountName}",
+            "quel est le score de {AccountName}",
+            "le score de {AccountName}",
+            "le total de {AccountName}",
+            "le solde de {AccountName}",
+            "les points de {AccountName}"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": []
+    }
+  }
+}

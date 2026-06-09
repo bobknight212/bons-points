@@ -1,0 +1,21 @@
+{
+  "askcliResourcesVersion": "2020-03-31",
+  "profiles": {
+    "default": {
+      "skillMetadata": {
+        "src": "./skill-package"
+      },
+      "code": {
+        "default": {
+          "src": "./lambda"
+        }
+      },
+      "skillInfrastructure": {
+        "@ask-cli/cfn-deployer": {
+          "templatePath": "./infrastructure/cfn-deployer/skill-stack.yaml",
+          "cfnRegion": "eu-west-1"
+        }
+      }
+    }
+  }
+}
